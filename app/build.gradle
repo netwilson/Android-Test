@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.infoki.sales"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        // Enabling multidex support.
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.+'
+    implementation 'com.android.support:support-v4:28.+'
+    implementation 'com.android.support:design:28.+'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    // SOAP
+    implementation 'com.google.code.ksoap2-android:ksoap2-android:3.6.2'
+    // Jackson
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+    // ZXing
+    implementation 'com.journeyapps:zxing-android-embedded:3.3.0'
+    // Test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    // Anotaciones
+    annotationProcessor 'com.google.auto.value:auto-value:1.1'
+}
